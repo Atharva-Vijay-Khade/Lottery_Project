@@ -21,4 +21,4 @@ package-lock.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-Blockchain_Backend.node_modules.@consento.sync-randombytes.android.build.intermediates.javac.debug.compileDebugJavaWithJavac.classes.com.consento.syncrandombytes.SyncRandomBytesModule.class
+./Blockchain_Backend/node_modules/
