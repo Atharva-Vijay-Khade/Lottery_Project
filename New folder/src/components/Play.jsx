@@ -11,7 +11,9 @@ export default class Play extends Component {
     this.state = {
       account: "",
       list : ["not yet declared"],
-      value : "1"
+      value : "1",
+      lotteryContract : "",
+      isManager: false
     };
   }
 
@@ -19,6 +21,20 @@ export default class Play extends Component {
     this.loadBlockchainData(this.props.dispatch);
   }
 
+  addNewPlayer = async () => {
+    console.log(this);
+    await this.state.lotteryContract.methods.enter().send({
+      from : this.state.account , value : web3.utils.toWei(this.state.value,'ether')
+    });
+  }
+
+  pickWinner = async () => {
+    console.log(this);
+    await this.state.lotteryContract.methods.pickWinner().send({
+      from : this.state.account
+    });
+  }
+  
   async loadBlockchainData() {
 
     const accounts = await web3.eth.getAccounts();
@@ -27,14 +43,14 @@ export default class Play extends Component {
     const lotteryContract = new web3.eth.Contract(LotteryAbi, LotteryAddress);
     this.setState({ lotteryContract });
 
+    const checkManager = await lotteryContract.methods.manager().call();
+
+    if(this.state.account == checkManager)
+      this.setState({isManager: true});
+
     console.log(this.state.account);
 
     console.log(lotteryContract);
-
-    await lotteryContract.methods.enter().send({
-      from : this.state.account , value : web3.utils.toWei(this.state.value,'ether')
-    });
-
 
     // const list = await lotteryContract.methods.getPlayers().call();
 
@@ -54,13 +70,19 @@ export default class Play extends Component {
     // this.setState({ rting });
   }
 
+
   render() {
 
     return (
       <div>
-        <button onClick={this.componentWillMount} type="button" className="btn btn-success btn-lg">
+        <button onClick={this.addNewPlayer} type="button" className="btn btn-success btn-lg">
           Play
         </button>
+        {"        "}
+        { this.state.isManager && <button onClick={this.pickWinner} type="button" className="btn btn-success btn-lg">
+          Pick Winner
+          </button>
+        }
       </div>
     );
   }
