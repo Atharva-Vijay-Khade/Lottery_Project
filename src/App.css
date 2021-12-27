@@ -1,14 +1,33 @@
-.container {
+header {
+  width: 100%;
+  padding: 10px;
+  padding-left: 60px;
+}
+.main-container {
+  padding: 20px;
+  height: 600px;
+  width: 100%;
+  background-color: rgb(168, 30, 30);
+  color: white;
   display: flex;
   justify-content: space-between;
 }
-.container__subcard {
-  padding: 20px;
-  flex: 1;
+.container__content {
+  flex: 0.4;
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 99, 71, 0.678);
+}
+@media screen and (max-width: 430px) {
+  .main-container {
+    flex-direction: column;
+  }
 }
 
-@media screen and (max-width: 430px) {
-  .container {
+@media screen and (max-width: 1200px) {
+  .main-container {
     flex-direction: column;
   }
 }

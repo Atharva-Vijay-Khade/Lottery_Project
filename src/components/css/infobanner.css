@@ -1,0 +1,21 @@
+.info-container {
+  padding: 40px;
+  /* background-color: khaki; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.info-container img {
+  flex: 0.5;
+  width: 40%;
+}
+
+.info-container__rules-and-regu {
+  flex: 0.5;
+  padding: 20px;
+  /* background-color: lavender; */
+}
+.list-group {
+  max-height: 300px;
+  overflow-y: scroll;
+}
