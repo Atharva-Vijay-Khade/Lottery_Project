@@ -1,9 +1,9 @@
 .play-btn {
   position: absolute;
-  left: 0px;
+  left: -3px;
   bottom: 1px;
   height: 14vh;
-  width: 100%;
+  width: 101%;
   background-color: rgb(221, 55, 49);
   display: flex;
   justify-content: center;
@@ -21,6 +21,9 @@
   background-color: #d98324;
   background: linear-gradient(-45deg, #580303, #e61919);
   background-size: 200% 200%;
+
+  border-top: 3px solid white;
+  border-style: dashed;
 }
 .play-btn:hover {
   animation: gradient 5s ease infinite;
@@ -39,8 +42,13 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .play-btn {
     font-size: 30px;
+  }
+}
+@media screen and (max-width: 667px) {
+  .play-btn {
+    font-size: 20px;
   }
 }
