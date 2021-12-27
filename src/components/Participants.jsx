@@ -10,16 +10,7 @@ export default class Participants extends Component {
 
     this.state = {
       account: "",
-      list: [
-        "Fetching...",
-        "Test 1",
-        "Test 1",
-        "Test 1",
-        "Test Oveflow",
-        "Test Oveflow",
-        "Test Oveflow",
-        "Test Oveflow",
-      ],
+      list: ["Fetching..."],
     };
     this.setPrizePool = props.setPrizePool;
   }
@@ -41,7 +32,7 @@ export default class Participants extends Component {
 
     const list = await lotteryContract.methods.getPlayers().call();
 
-    // this.setState({list});
+    this.setState({ list });
     this.setPrizePool("$ " + this.state.list.length * 5000);
   }
 

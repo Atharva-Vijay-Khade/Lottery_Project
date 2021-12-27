@@ -28,7 +28,4 @@ code {
     display: flex;
     justify-content: center;
   }
-  #root {
-    /* width: 95%; */
-  }
 }

@@ -16,6 +16,11 @@
   justify-content: center;
   background-color: rgba(255, 99, 71, 0.678);
 }
+.main-container__badge {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 @media screen and (max-width: 667px) {
   .main-container {
     flex-direction: column;

@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 import "./css/winner.css";
 
-import web3 from '../web3';
-import {LotteryAbi, LotteryAddress} from '../Lottery';
-
+import web3 from "../web3";
+import { LotteryAbi, LotteryAddress } from "../Lottery";
 
 export default class Winners extends Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
       account: "",
-      list : ["TBD..."],
+      winner: ["TBD..."],
       players: [],
-      WINNER: "winner"
+      text: "winner",
     };
   }
 
@@ -23,7 +21,6 @@ export default class Winners extends Component {
   }
 
   async loadBlockchainData() {
-
     const accounts = await web3.eth.getAccounts();
     this.setState({ account: accounts[0] });
 
@@ -36,22 +33,16 @@ export default class Winners extends Component {
 
     const players = await lotteryContract.methods.getPlayers().call();
 
-    this.setState({players});
+    this.setState({ players });
 
-    if(players.length > 0)
-      this.setState({WINNER : "Previous Winner"});
-    else 
-      this.setState({WINNER : "Winner"});
+    if (players.length > 0) this.setState({ text: "Previous Winner" });
+    else this.setState({ text: "Winner" });
 
-    
     const winner = await lotteryContract.methods.winner().call();
 
-    this.setState({list : [winner]});
+    this.setState({ winner: winner });
 
     // await lotteryContract.methods.reset().call();
-    
-    
-
 
     // const points = await ratingContract.methods.getPoints(0).call();
 
@@ -68,20 +59,9 @@ export default class Winners extends Component {
 
   render() {
     return (
-      <div className="participants">
-        <h1>{this.state.WINNER}</h1>
-        <ul className="list-group">
-          {this.state.list.map((eachele) => {
-            return (
-              <li
-                className="list-group-item lmao"
-                key={this.state.list.indexOf(eachele)}
-              >
-                {eachele}
-              </li>
-            );
-          })}
-        </ul>
+      <div className="winner">
+        <h1>{this.state.text}</h1>
+        <input type="text" value={this.state.winner} />
       </div>
     );
   }

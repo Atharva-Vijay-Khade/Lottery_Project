@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Participants from "./Participants";
 import "./css/maincontainer.css";
 import badgeImage from "../assets/badge-image.png";
+import Winners from "./Winners";
 const MainContainer = () => {
   let [prizepool, setPrizePool] = useState(0);
   return (
@@ -16,6 +17,7 @@ const MainContainer = () => {
       <div className="main-container__badge">
         <img src={badgeImage} alt="" />
         <h1>{prizepool}</h1>
+        <Winners />
       </div>
       <Participants setPrizePool={setPrizePool} />
     </div>

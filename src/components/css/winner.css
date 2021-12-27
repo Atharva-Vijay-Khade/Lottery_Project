@@ -1,0 +1,12 @@
+.winner {
+  display: flex;
+  width: calc(inherit - 50px);
+  justify-content: center;
+  /* position: absolute; */
+  bottom: 1px;
+  /* overflow-x: scrolls; */
+}
+.winner h1 {
+  position: relative;
+  /* bottom: 20px; */
+}

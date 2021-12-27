@@ -19,7 +19,6 @@ class App extends React.Component {
         <MainContainer />
         <Clock />
         <InfoBanner />
-        <Winners />
         <Play />
       </>
     );
