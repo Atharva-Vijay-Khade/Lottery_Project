@@ -4,6 +4,7 @@ import "./css/winner.css";
 import web3 from '../web3';
 import {LotteryAbi, LotteryAddress} from '../Lottery';
 
+
 export default class Winners extends Component {
 
   constructor(props) {
@@ -11,7 +12,9 @@ export default class Winners extends Component {
 
     this.state = {
       account: "",
-      list : []
+      list : ["TBD..."],
+      players: [],
+      WINNER: "winner"
     };
   }
 
@@ -31,6 +34,25 @@ export default class Winners extends Component {
 
     console.log(lotteryContract);
 
+    const players = await lotteryContract.methods.getPlayers().call();
+
+    this.setState({players});
+
+    if(players.length > 0)
+      this.setState({WINNER : "Previous Winner"});
+    else 
+      this.setState({WINNER : "Winner"});
+
+    
+    const winner = await lotteryContract.methods.winner().call();
+
+    this.setState({list : [winner]});
+
+    // await lotteryContract.methods.reset().call();
+    
+    
+
+
     // const points = await ratingContract.methods.getPoints(0).call();
 
     // this.setState({ points });
@@ -47,7 +69,7 @@ export default class Winners extends Component {
   render() {
     return (
       <div className="participants">
-        <h1>Winners</h1>
+        <h1>{this.state.WINNER}</h1>
         <ul className="list-group">
           {this.state.list.map((eachele) => {
             return (
