@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-
-import web3 from '../web3';
-import {LotteryAbi, LotteryAddress} from '../Lottery';
+import "./css/play.css";
+import web3 from "../web3";
+import { LotteryAbi, LotteryAddress } from "../Lottery";
 
 export default class Play extends Component {
-
   constructor(props) {
     super(props);
-
+    this.userclickedonce = false;
     this.state = {
       account: "",
-      list : ["not yet declared"],
-      value : "1",
-      lotteryContract : "",
-      isManager: false
+      playtext: "Play - As Easy As 1, 2, 3",
+      list: ["not yet declared"],
+      value: "1",
+      lotteryContract: "",
+      isManager: false,
     };
   }
 
@@ -22,21 +22,27 @@ export default class Play extends Component {
   }
 
   addNewPlayer = async () => {
-    console.log(this);
-    await this.state.lotteryContract.methods.enter().send({
-      from : this.state.account , value : web3.utils.toWei(this.state.value,'ether')
-    });
-  }
+    // console.log(this);
+    try {
+      let x = await this.state.lotteryContract.methods.enter().send({
+        from: this.state.account,
+        value: web3.utils.toWei(this.state.value, "ether"),
+      });
+    } catch (error) {
+      this.setState({ playtext: "Some Error Occured" });
+      return;
+    }
+    this.setState({ playtext: "You Enrolled ^-^" });
+  };
 
   pickWinner = async () => {
     console.log(this);
     await this.state.lotteryContract.methods.pickWinner().send({
-      from : this.state.account
+      from: this.state.account,
     });
-  }
-  
-  async loadBlockchainData() {
+  };
 
+  async loadBlockchainData() {
     const accounts = await web3.eth.getAccounts();
     this.setState({ account: accounts[0] });
 
@@ -45,8 +51,7 @@ export default class Play extends Component {
 
     const checkManager = await lotteryContract.methods.manager().call();
 
-    if(this.state.account == checkManager)
-      this.setState({isManager: true});
+    if (this.state.account == checkManager) this.setState({ isManager: true });
 
     console.log(this.state.account);
 
@@ -55,7 +60,6 @@ export default class Play extends Component {
     // const list = await lotteryContract.methods.getPlayers().call();
 
     // this.setState({list});
-
 
     // const points = await ratingContract.methods.getPoints(0).call();
 
@@ -70,19 +74,39 @@ export default class Play extends Component {
     // this.setState({ rting });
   }
 
+  handleClickEvent = () => {
+    if (this.userclickedonce == true) return;
 
+    this.userclickedonce = true;
+    this.setState({ playtext: "Adding you..." });
+    setTimeout(() => {
+      this.setState({
+        playtext: "Please follow the MetaMask Instructions...",
+      });
+    }, 2000);
+    this.addNewPlayer();
+  };
   render() {
-
     return (
+      <div onClick={this.handleClickEvent} className="play-btn">
+        {this.state.playtext}
+      </div>
+    );
+    let x = (
       <div>
-        <button onClick={this.addNewPlayer} type="button" className="btn btn-success btn-lg">
+        <button type="button" className="btn btn-success btn-lg">
           Play
         </button>
         {"        "}
-        { this.state.isManager && <button onClick={this.pickWinner} type="button" className="btn btn-success btn-lg">
-          Pick Winner
+        {this.state.isManager && (
+          <button
+            onClick={this.pickWinner}
+            type="button"
+            className="btn btn-success btn-lg"
+          >
+            Pick Winner
           </button>
-        }
+        )}
       </div>
     );
   }
