@@ -1,5 +1,3 @@
-import web3 from './web3';
-
 export const LotteryAddress = "0x0d5C9895382ACacFcc5fd139453aa732c495E843";
 
 export const LotteryAbi = [
@@ -87,4 +85,4 @@ export const LotteryAbi = [
         "stateMutability": "view",
         "type": "function"
     }
-]
+];

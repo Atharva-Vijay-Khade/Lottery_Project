@@ -60,7 +60,8 @@ export default class Winners extends Component {
   render() {
     return (
       <div className="winner">
-        <h1>{this.state.text}</h1>
+        <h2>{this.state.text}</h2>
+
         <input type="text" value={this.state.winner} />
       </div>
     );

@@ -1,6 +1,5 @@
 .main-container {
   padding: 20px;
-  /* height: 600px; */
   width: 100%;
   background-color: rgb(168, 30, 30);
   color: white;
@@ -17,17 +16,33 @@
   background-color: rgba(255, 99, 71, 0.678);
 }
 .main-container__badge {
+  flex: 0.5;
+  height: 100px;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  font-size: large;
 }
+.main-container__badge__image-n-text {
+  height: auto;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+.main-container__badge__image-n-text h1 {
+  position: absolute;
+  top: calc(50% - 20px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 @media screen and (max-width: 667px) {
   .main-container {
     flex-direction: column;
     justify-content: center;
-  }
-  .main-container__badge {
-    /* background-color: black; */
   }
   .main-container__badge img {
     width: 70vw;
@@ -51,18 +66,6 @@
 @media screen and (min-width: 1200px) {
   .main-container {
     padding: 20px 100px;
+    height: 75%;
   }
-}
-
-.main-container__badge {
-  flex: 0.5;
-  height: 100px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: large;
-}
-.main-container__badge h1 {
-  position: absolute;
 }

@@ -15,8 +15,11 @@ const MainContainer = () => {
         commodo consequat.
       </div>
       <div className="main-container__badge">
-        <img src={badgeImage} alt="" />
-        <h1>{prizepool}</h1>
+        <div className="main-container__badge__image-n-text">
+          <img src={badgeImage} alt="" />
+
+          <h1>{prizepool}</h1>
+        </div>
         <Winners />
       </div>
       <Participants setPrizePool={setPrizePool} />

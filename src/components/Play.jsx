@@ -13,8 +13,9 @@ export default class Play extends Component {
       list: ["not yet declared"],
       value: "1",
       lotteryContract: "",
-      isManager: false,
     };
+
+    this.setIsAdmin = props.setIsAdmin;
   }
 
   componentWillMount() {
@@ -24,7 +25,7 @@ export default class Play extends Component {
   addNewPlayer = async () => {
     // console.log(this);
     try {
-      let x = await this.state.lotteryContract.methods.enter().send({
+      await this.state.lotteryContract.methods.enter().send({
         from: this.state.account,
         value: web3.utils.toWei(this.state.value, "ether"),
       });
@@ -51,7 +52,9 @@ export default class Play extends Component {
 
     const checkManager = await lotteryContract.methods.manager().call();
 
-    if (this.state.account == checkManager) this.setState({ isManager: true });
+    if (this.state.account === checkManager) {
+      this.setIsAdmin(true);
+    }
 
     console.log(this.state.account);
 
@@ -75,7 +78,10 @@ export default class Play extends Component {
   }
 
   handleClickEvent = () => {
-    if (this.userclickedonce == true) return;
+    if (this.userclickedonce === true) {
+      alert("Please Refresh the Page.");
+      return;
+    }
 
     this.userclickedonce = true;
     this.setState({ playtext: "Adding you..." });
@@ -90,23 +96,6 @@ export default class Play extends Component {
     return (
       <div onClick={this.handleClickEvent} className="play-btn">
         {this.state.playtext}
-      </div>
-    );
-    let x = (
-      <div>
-        <button type="button" className="btn btn-success btn-lg">
-          Play
-        </button>
-        {"        "}
-        {this.state.isManager && (
-          <button
-            onClick={this.pickWinner}
-            type="button"
-            className="btn btn-success btn-lg"
-          >
-            Pick Winner
-          </button>
-        )}
       </div>
     );
   }

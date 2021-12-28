@@ -32,14 +32,20 @@ export default class Participants extends Component {
 
     const list = await lotteryContract.methods.getPlayers().call();
 
-    this.setState({ list });
-    this.setPrizePool("$ " + this.state.list.length * 5000);
+    this.setState({
+      list: list.length === 0 ? ["No Participations yet"] : list,
+    });
+    this.setPrizePool(
+      list.length === 0
+        ? "$ 0.00"
+        : "$ " + this.state.list.length * 5000 + ".00"
+    );
   }
 
   render() {
     return (
       <div className="participants">
-        <h1>Alredy Participated</h1>
+        <h1>Already Participated</h1>
         <ul className="list-group">
           {this.state.list.map((eachele) => {
             return (

@@ -2,11 +2,20 @@
   display: flex;
   width: calc(inherit - 50px);
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   /* position: absolute; */
   bottom: 1px;
   /* overflow-x: scrolls; */
 }
-.winner h1 {
+.winner h2 {
   position: relative;
   /* bottom: 20px; */
+}
+.winner input {
+  background-color: rgba(255, 255, 255, 0.075);
+  color: rgb(255, 255, 255);
+  width: 90%;
+  padding: 10px;
+  border: none;
 }
