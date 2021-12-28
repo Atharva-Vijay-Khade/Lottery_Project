@@ -12,7 +12,7 @@ export default class Play extends Component {
       playtext: "Play - As Easy As 1, 2, 3",
       list: ["not yet declared"],
       value: "1",
-      isAdmin: true,
+      isAdmin: false,
       lotteryContract: "",
     };
   }
