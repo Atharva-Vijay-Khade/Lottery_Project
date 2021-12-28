@@ -26,11 +26,6 @@ export default class Winners extends Component {
 
     const lotteryContract = new web3.eth.Contract(LotteryAbi, LotteryAddress);
     this.setState({ lotteryContract });
-
-    // console.log(this.state.account);
-
-    // console.log(lotteryContract);
-
     const players = await lotteryContract.methods.getPlayers().call();
 
     this.setState({ players });

@@ -12,10 +12,9 @@ export default class Play extends Component {
       playtext: "Play - As Easy As 1, 2, 3",
       list: ["not yet declared"],
       value: "1",
+      isAdmin: true,
       lotteryContract: "",
     };
-
-    this.setIsAdmin = props.setIsAdmin;
   }
 
   componentWillMount() {
@@ -37,7 +36,7 @@ export default class Play extends Component {
   };
 
   pickWinner = async () => {
-    console.log(this);
+    // console.log(this);
     await this.state.lotteryContract.methods.pickWinner().send({
       from: this.state.account,
     });
@@ -53,12 +52,8 @@ export default class Play extends Component {
     const checkManager = await lotteryContract.methods.manager().call();
 
     if (this.state.account === checkManager) {
-      this.setIsAdmin(true);
+      this.setState({ isAdmin: true });
     }
-
-    // console.log(this.state.account);
-
-    // console.log(lotteryContract);
   }
 
   handleClickEvent = () => {
@@ -78,9 +73,19 @@ export default class Play extends Component {
   };
   render() {
     return (
-      <div onClick={this.handleClickEvent} className="play-btn">
-        {this.state.playtext}
-      </div>
+      <>
+        {this.state.isAdmin === true && (
+          <button
+            className="btn btn-danger pick-winner"
+            onClick={this.pickWinner}
+          >
+            Pick Winner
+          </button>
+        )}
+        <div onClick={this.handleClickEvent} className="play-btn">
+          {this.state.playtext}
+        </div>
+      </>
     );
   }
 }

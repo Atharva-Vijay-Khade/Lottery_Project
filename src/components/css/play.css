@@ -8,7 +8,6 @@
   display: flex;
   justify-content: center;
   padding-top: 10px;
-  /* align-items: center; */
   position: fixed;
   z-index: 10;
   cursor: pointer;
@@ -30,6 +29,12 @@
   transform: translateY(3px);
 }
 
+.pick-winner {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -46,9 +51,15 @@
   .play-btn {
     font-size: 30px;
   }
+  .pick-winner {
+    top: 15px;
+  }
 }
 @media screen and (max-width: 667px) {
   .play-btn {
     font-size: 20px;
+  }
+  .pick-winner {
+    top: 10px;
   }
 }
