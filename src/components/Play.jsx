@@ -56,25 +56,9 @@ export default class Play extends Component {
       this.setIsAdmin(true);
     }
 
-    console.log(this.state.account);
+    // console.log(this.state.account);
 
-    console.log(lotteryContract);
-
-    // const list = await lotteryContract.methods.getPlayers().call();
-
-    // this.setState({list});
-
-    // const points = await ratingContract.methods.getPoints(0).call();
-
-    // this.setState({ points });
-    //console.log(points);
-
-    // const count = await ratingContract.methods.getCount(0).call();
-
-    // this.setState({ count });
-    // console.log(count);
-    // var rting = points / count;
-    // this.setState({ rting });
+    // console.log(lotteryContract);
   }
 
   handleClickEvent = () => {

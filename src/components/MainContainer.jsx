@@ -17,8 +17,10 @@ const MainContainer = () => {
       <div className="main-container__badge">
         <div className="main-container__badge__image-n-text">
           <img src={badgeImage} alt="" />
-
-          <h1>{prizepool}</h1>
+          <h5>Current Pool 🤑</h5>
+          <h1>
+            $ <strong>{prizepool}</strong>
+          </h1>
         </div>
         <Winners />
       </div>

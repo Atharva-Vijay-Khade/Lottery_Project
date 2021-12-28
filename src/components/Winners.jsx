@@ -10,9 +10,9 @@ export default class Winners extends Component {
 
     this.state = {
       account: "",
-      winner: ["TBD..."],
+      winner: ["To be declared...    Stay Tuned"],
       players: [],
-      text: "winner",
+      text: "Winner",
     };
   }
 
@@ -27,9 +27,9 @@ export default class Winners extends Component {
     const lotteryContract = new web3.eth.Contract(LotteryAbi, LotteryAddress);
     this.setState({ lotteryContract });
 
-    console.log(this.state.account);
+    // console.log(this.state.account);
 
-    console.log(lotteryContract);
+    // console.log(lotteryContract);
 
     const players = await lotteryContract.methods.getPlayers().call();
 
@@ -41,26 +41,12 @@ export default class Winners extends Component {
     const winner = await lotteryContract.methods.winner().call();
 
     this.setState({ winner: winner });
-
-    // await lotteryContract.methods.reset().call();
-
-    // const points = await ratingContract.methods.getPoints(0).call();
-
-    // this.setState({ points });
-    //console.log(points);
-
-    // const count = await ratingContract.methods.getCount(0).call();
-
-    // this.setState({ count });
-    // console.log(count);
-    // var rting = points / count;
-    // this.setState({ rting });
   }
 
   render() {
     return (
       <div className="winner">
-        <h2>{this.state.text}</h2>
+        <h2>{this.state.text}🥳</h2>
 
         <input type="text" value={this.state.winner} />
       </div>

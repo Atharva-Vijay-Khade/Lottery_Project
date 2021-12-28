@@ -26,9 +26,9 @@ export default class Participants extends Component {
     const lotteryContract = new web3.eth.Contract(LotteryAbi, LotteryAddress);
     this.setState({ lotteryContract });
 
-    console.log(this.state.account);
+    // console.log(this.state.account);
 
-    console.log(lotteryContract);
+    // console.log(lotteryContract);
 
     const list = await lotteryContract.methods.getPlayers().call();
 
@@ -36,9 +36,7 @@ export default class Participants extends Component {
       list: list.length === 0 ? ["No Participations yet"] : list,
     });
     this.setPrizePool(
-      list.length === 0
-        ? "$ 0.00"
-        : "$ " + this.state.list.length * 5000 + ".00"
+      list.length === 0 ? "0.00" : this.state.list.length * 5000 + ".00"
     );
   }
 
