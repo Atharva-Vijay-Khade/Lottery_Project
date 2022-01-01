@@ -36,7 +36,7 @@ export default class Participants extends Component {
       list: list.length === 0 ? ["No Participations yet"] : list,
     });
     this.setPrizePool(
-      list.length === 0 ? "0.00" : this.state.list.length * 5000 + ".00"
+      list.length === 0 ? "0.00" : this.state.list.length + ".00"
     );
   }
 

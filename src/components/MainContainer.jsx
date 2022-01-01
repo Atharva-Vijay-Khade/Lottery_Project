@@ -9,17 +9,16 @@ const MainContainer = () => {
     <div className="main-container">
       <div className="container__content">
         <h1>GLOBAL BLOCKCHAIN LOTTERY</h1>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+        A decentralized lottery system on the ethereum network.
+        <br></br>
+        Note: This is a learning project and is hosted on Rinkeby test network.
       </div>
       <div className="main-container__badge">
         <div className="main-container__badge__image-n-text">
           <img src={badgeImage} alt="" />
           <h5>Current Pool 🤑</h5>
           <h1>
-            $ <strong>{prizepool}</strong>
+          <strong>{prizepool}</strong> ETH
           </h1>
         </div>
         <Winners />

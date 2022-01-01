@@ -9,10 +9,10 @@ export default class InfoBanner extends Component {
         <div className="info-container__rules-and-regu">
           <h1>Rules To Participate</h1>
           <ul>
-            <li>Lorem ipsum dolor</li>
-            <li> sit amet, consectetur</li>
-            <li> adipiscing elit, sed do</li>
-            <li> eiusmod tempor incididunt</li>
+            <li>Connect your metamask wallet</li>
+            <li>Set Rinkeby test network to your wallet</li>
+            <li>The entry price of the lottery is 1 ETH, make sure of have sufficient funds in your wallet</li>
+            <li>Click on play and confirm your payment over metamask</li>
           </ul>
         </div>
       </div>
