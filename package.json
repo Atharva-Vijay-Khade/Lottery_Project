@@ -2,7 +2,7 @@
   "name": "lottery-react",
   "version": "0.1.0",
   "engines": {
-    "node": "6.11.1"
+    "node": "16.9.1"
   },
   "private": true,
   "dependencies": {
