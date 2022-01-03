@@ -6,7 +6,7 @@ const Web3 = require("web3");
 const { interface, bytecode } = require("./compile");
 
 const provider = new HDWalletProvider(
-    "blanket fruit flee juice cage length trash heart flip pelican stumble develop",
+    "Enter your mneumonic phrase",
     "https://rinkeby.infura.io/v3/695500dd6a1c427f9f515b406eabfd73"
 );
 
