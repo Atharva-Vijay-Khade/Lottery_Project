@@ -1,0 +1,36 @@
+.clock-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.clock-wrapper__clock {
+  background-image: url("../../assets/clock-bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  transform: translateY(-30px);
+}
+.clock-wrapper__clock span {
+  padding: 5px;
+  border: 1px solid rgba(255, 0, 0, 0.61);
+  background-color: white;
+  color: black;
+}
+@media screen and (max-width: 667px) {
+  .clock-wrapper__clock {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 428px) {
+  .clock-wrapper__clock {
+    width: 100%;
+  }
+}

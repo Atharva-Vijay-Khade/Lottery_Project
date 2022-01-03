@@ -1,0 +1,65 @@
+.play-btn {
+  position: absolute;
+  left: -3px;
+  bottom: 1px;
+  height: 14vh;
+  width: 101%;
+  background-color: rgb(221, 55, 49);
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  position: fixed;
+  z-index: 10;
+  cursor: pointer;
+  transition: 0.2s ease all;
+  transform: translateY(30px);
+
+  color: white;
+  font-size: 38px;
+
+  background-color: #d98324;
+  background: linear-gradient(-45deg, #580303, #e61919);
+  background-size: 200% 200%;
+
+  border-top: 3px solid white;
+  border-style: dashed;
+}
+.play-btn:hover {
+  animation: gradient 5s ease infinite;
+  transform: translateY(3px);
+}
+
+.pick-winner {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .play-btn {
+    font-size: 30px;
+  }
+  .pick-winner {
+    top: 15px;
+  }
+}
+@media screen and (max-width: 667px) {
+  .play-btn {
+    font-size: 20px;
+  }
+  .pick-winner {
+    top: 10px;
+  }
+}
