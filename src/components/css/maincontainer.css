@@ -55,6 +55,11 @@ h5 {
     flex: 1;
   }
 }
+@media screen and (min-width: 667px) {
+  .main-container {
+    height: 75%;
+  }
+}
 @media screen and (max-width: 1200px) {
   .main-container {
     flex-wrap: wrap;

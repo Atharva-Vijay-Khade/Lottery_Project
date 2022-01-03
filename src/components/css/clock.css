@@ -29,3 +29,8 @@
     width: 75%;
   }
 }
+@media screen and (max-width: 428px) {
+  .clock-wrapper__clock {
+    width: 100%;
+  }
+}
