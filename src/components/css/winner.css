@@ -1,6 +1,6 @@
 .winner {
   display: flex;
-  width: calc(inherit - 50px);
+  width: calc(100% - 5px);
   justify-content: center;
   align-items: center;
   flex-direction: column;
