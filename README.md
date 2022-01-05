@@ -17,7 +17,7 @@ The project is currently deployed from heroku. Link :- https://lottery--project.
 - The Winner will be picked by the deployer of the contract called as the manager.
 - The Winner will be decided by the random function which is cryptographically hashed and is almost impossible to predict.
 
-### Prequistics
+### prerequisites
 - Get Metamask wallet for your device from [here](https://metamask.io/download.html).
 - Get free test ethers from the Rinkeby's Testnet [faucet](https://faucet.rinkeby.io/).
 - Open the [project](https://lottery--project.herokuapp.com/) and connect your wallet if prompted.
