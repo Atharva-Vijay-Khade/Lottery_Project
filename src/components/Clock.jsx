@@ -12,7 +12,7 @@ export default function Clock() {
   }, []);
 
   function getRemaningTime() {
-    var countDownDate = new Date("Jan 5, 2022 21:00:00").getTime();
+    var countDownDate = new Date("Jan 15, 2022 21:00:00").getTime();
     var now = new Date().getTime();
 
     // Find the distance between now and the count down date
