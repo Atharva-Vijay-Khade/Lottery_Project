@@ -34,10 +34,10 @@
 .main-container__badge__image-n-text h1,
 h5 {
   position: absolute;
-  top: calc(50% - 20px);
-  left: 0;
+  top: calc(50% - 10px);
+  left: 15px;
   right: 0;
-  bottom: 0;
+  /* bottom: 0; */
 }
 .main-container__badge__image-n-text h5 {
   top: 35%;
@@ -51,13 +51,19 @@ h5 {
   .main-container__badge img {
     width: 70vw;
   }
+  .main-container__badge__image-n-text h5 {
+    position: absolute;
+    font-size: 15px;
+    left: 15px;
+    right: 0;
+  }
   .container__content {
     flex: 1;
   }
 }
 @media screen and (min-width: 667px) {
   .main-container {
-    height: 75%;
+    height: 80%;
   }
 }
 @media screen and (max-width: 1200px) {

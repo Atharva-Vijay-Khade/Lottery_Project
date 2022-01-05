@@ -20,7 +20,20 @@ export default class Participants extends Component {
   }
 
   async loadBlockchainData() {
-    const accounts = await web3.eth.getAccounts();
+    let accounts;
+    try {
+      accounts = await web3.eth.getAccounts();
+    } catch (err) {
+      this.setState({
+        list: ["Cannot Fetch Details."],
+      });
+      this.setPrizePool("- -");
+      alert(
+        "Metamask Extension is not Detected, or either it is disabled. Please Install MetaMask and refresh the page."
+      );
+      console.log("please install metamask");
+      return;
+    }
     this.setState({ account: accounts[0] });
 
     const lotteryContract = new web3.eth.Contract(LotteryAbi, LotteryAddress);

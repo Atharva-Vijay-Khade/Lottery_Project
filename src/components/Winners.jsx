@@ -21,7 +21,14 @@ export default class Winners extends Component {
   }
 
   async loadBlockchainData() {
-    const accounts = await web3.eth.getAccounts();
+    let accounts;
+    try {
+      accounts = await web3.eth.getAccounts();
+    } catch (err) {
+      this.setState({ winner: "Cannot Fetch" });
+      console.log("please install metamask");
+      return;
+    }
     this.setState({ account: accounts[0] });
 
     const lotteryContract = new web3.eth.Contract(LotteryAbi, LotteryAddress);

@@ -14,6 +14,7 @@ export default class Play extends Component {
       value: "1",
       isAdmin: false,
       lotteryContract: "",
+      ismetamaskavailable: true,
     };
   }
 
@@ -29,7 +30,10 @@ export default class Play extends Component {
         value: web3.utils.toWei(this.state.value, "ether"),
       });
     } catch (error) {
-      this.setState({ playtext: "Some Error Occured" });
+      console.log(error);
+      setTimeout(() => {
+        this.setState({ playtext: "Some Error Occured" });
+      }, 4000);
       return;
     }
     this.setState({ playtext: "You Enrolled ^-^" });
@@ -43,7 +47,14 @@ export default class Play extends Component {
   };
 
   async loadBlockchainData() {
-    const accounts = await web3.eth.getAccounts();
+    let accounts;
+    try {
+      accounts = await web3.eth.getAccounts();
+    } catch (err) {
+      this.state.ismetamaskavailable = false;
+      console.log("please install metamask");
+      return;
+    }
     this.setState({ account: accounts[0] });
 
     const lotteryContract = new web3.eth.Contract(LotteryAbi, LotteryAddress);
@@ -57,6 +68,10 @@ export default class Play extends Component {
   }
 
   handleClickEvent = () => {
+    if (this.state.ismetamaskavailable === false) {
+      alert("Meta Mask not found. Please Install it to continue furthur");
+      return;
+    }
     if (this.userclickedonce === true) {
       alert("Please Refresh the Page.");
       return;
