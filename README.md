@@ -1,7 +1,10 @@
-# Decentralized lottery system
+<h1 align="center"> Decentralized Lottery System </h1>
+<p align="center">
 A blockchain based decentralized lottery system. The smart contract is deployed over Ethereum's Rinkeby Test Network.
 
-The project is currently deployed from heroku. Link :- https://lottery--project.herokuapp.com/
+The project is currently deployed on heroku.
+  [View Deployment ⇉](https://lottery--project.herokuapp.com/)
+</p>
 
 ![screenshot for home screen](https://github.com/Atharva-Vijay-Khade/Lottery_Project/blob/master/screenshots/1.png)
 
@@ -17,7 +20,7 @@ The project is currently deployed from heroku. Link :- https://lottery--project.
 - The Winner will be picked by the deployer of the contract called as the manager.
 - The Winner will be decided by the random function which is cryptographically hashed and is almost impossible to predict.
 
-### prerequisites
+### Prerequisites
 - Get Metamask wallet for your device from [here](https://metamask.io/download.html).
 - Get free test ethers from the Rinkeby's Testnet [faucet](https://faucet.rinkeby.io/).
 - Open the [project](https://lottery--project.herokuapp.com/) and connect your wallet if prompted.
@@ -26,4 +29,4 @@ The project is currently deployed from heroku. Link :- https://lottery--project.
 - After connecting your Metamask wallet, just click on the play button below
 - You will be prompted by the Metamask to confirm your transaction.
 ![screenshot for metamask popup confirmation](https://github.com/Atharva-Vijay-Khade/Lottery_Project/blob/master/screenshots/2.png)
-- After a successfull transaction, you'll we added to the lottery and you can see your public address under participants list.
+- After a successfull transaction, you'll be added to the lottery and you can see your public address under participants list.
